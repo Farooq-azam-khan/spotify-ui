@@ -13,7 +13,7 @@ const Sidebar = ({ className }) => {
                     </ul>
                 </nav>
             </div>
-            <div className="mt-10 px-4 flex flex-col overflow-auto text-gray-300 h-48 border-b border-gray-600 w-full">
+            <div className="mt-10 px-4 flex flex-col overflow-auto text-gray-300 border-b border-gray-600 w-full h-40">
                 <div>
                     <h2 className="text-xs leading-tight uppercase font-semibold">Your Library</h2>
                 </div>
@@ -42,6 +42,9 @@ const Sidebar = ({ className }) => {
                 </div>
 
             </div>
+            <div className="flex items-center justify-cetner p-3"><div className="mr-3">icon</div><div>New Playlist</div></div>
+            <div className="flex-grow bg-purple-600 h-64">image</div>
+
         </div>
     )
 }

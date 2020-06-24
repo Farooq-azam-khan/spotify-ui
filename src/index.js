@@ -5,6 +5,7 @@ import App from './App';
 
 // css 
 import './assets/main.css';
+import './assets/scrollbar.css'
 
 ReactDOM.render(
   <React.StrictMode>
