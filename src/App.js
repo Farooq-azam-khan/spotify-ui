@@ -5,8 +5,8 @@ import Home from './components/Home'
 const App = () => {
   return (
     <div className="flex flex-col items-center justify-center text-white w-screen h-screen">
-      <Home className="flex bg-gray-800 h-full w-full" />
-      <ActiveSongDrawer className="flex w-full items-center justify-between bg-gray-700 px-3 py-1" />
+      <Home className="w-full flex-grow flex bg-gray-800" />
+      <ActiveSongDrawer className="w-full flex items-center justify-between bg-gray-700 px-3 py-1" />
     </div>
 
   );
