@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import * as Icons from 'heroicons-react';
-import {
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = ({ className }) => {
     const [toggleUserPopup, setUserPopup] = useState(false)

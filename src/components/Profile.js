@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import * as Icons from 'heroicons-react';
 
 const Profile = () => {
-    const [toggleShare, setShare] = useState(true)
+    const [toggleShare, setShare] = useState(false)
     const handleShare = () => { setShare(!toggleShare) }
     return (<div class="w-full h-full flex flex-col px-3 space-y-2 py-2">
         {/* profile image/info */}
@@ -19,9 +19,13 @@ const Profile = () => {
         </div>
         <div className="relative">
             <button onClick={handleShare} className="rounded-full"><Icons.DotsCircleHorizontalOutline className="w-8 h-8" /></button>
-            {toggleShare ? <ShareDropdown /> : null}
-
+            {toggleShare ? <><button className="fixed inset-0 w-full h-full cursor-default" onClick={() => setShare(false)}></button><ShareDropdown /></> : null}
         </div>
+        <nav className="flex space-x-2">
+            <button className="uppercase border-green-700 border-b-2 text-sm font-bold text-gray-200">Overview</button>
+            <button className="uppercase text-sm font-bold text-gray-500 hover:text-gray-200">Recently Played Artist</button>
+            <button className="uppercase text-sm font-bold text-gray-500 hover:text-gray-200">Following (41)</button>
+        </nav>
     </div>
     )
 }
