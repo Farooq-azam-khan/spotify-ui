@@ -4,7 +4,7 @@ import * as Icons from 'heroicons-react';
 const Profile = () => {
     const [toggleShare, setShare] = useState(false)
     const handleShare = () => { setShare(!toggleShare) }
-    return (<div class="w-full h-full flex flex-col px-3 space-y-2 py-2">
+    return (<div className="w-full h-full flex flex-col px-3 space-y-2 py-2">
         {/* profile image/info */}
         <div>
             <div className="inline-flex items-center space-x-3 px-2 justify-between">

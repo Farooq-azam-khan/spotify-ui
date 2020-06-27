@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useRouteMatch, Link } from 'react-router-dom';
 import * as Icons from 'heroicons-react';
 
 const Sidebar = ({ className }) => {
@@ -49,28 +49,31 @@ const Sidebar = ({ className }) => {
     )
 }
 
-const Navbar = ({ className = "" }) => {
-    // const { id } = useParams();
-    // const isHome = id === '/'
-    // const isBrowse = id === '/browse'
+
+
+const Navbar = ({ className = "flex flex-col space-y-1" }) => {
+    let isHome = useRouteMatch({
+        path: '/',
+        exact: true
+    });
+    let isBrowse = useRouteMatch({
+        path: '/browse',
+        exact: true
+    });
+    let isRadio = useRouteMatch({
+        path: '/radio',
+        exact: true
+    });
     return (<nav className={className}>
-        <ul className="flex flex-col">
-            <li className="text-xs sm:text-sm font-bold border-l-4 border-green-400 px-4">
-                <a href="/" className="inline-flex items-center justify-between text-white hover:text-gray-100 space-x-2">
-                    <span><Icons.Home className="w-7 h-7" /></span><span>Home</span>
-                </a>
-            </li>
-            <li className="text-xs sm:text-sm text-gray-500 font-bold px-5">
-                <a href="/browse" className="inline-flex items-center justify-between text-gray-500 hover:text-gray-100 space-x-2">
-                    <span><Icons.BookOpenOutline className="w-7 h-7" /></span><span>Browse</span>
-                </a>
-            </li>
-            <li className="text-xs sm:text-sm text-gray-500 font-bold px-5">
-                <a href="/radio" className="inline-flex items-center justify-between text-gray-500 hover:text-gray-100 space-x-2">
-                    <span><Icons.GlobeAltOutline className="w-7 h-7" /></span><span>Radio</span>
-                </a>
-            </li>
-        </ul>
+        <Link to="/" className={`inline-flex  font-bold text-xs sm:text-sm text-white hover:text-gray-100  ${isHome ? 'px-4 border-green-400 border-l-4' : 'px-5 text-gray-500'}`}>
+            <span><Icons.Home className="w-7 h-7" /></span><span>Home</span>
+        </Link>
+        <Link to="/browse" className={`inline-flex  font-bold text-xs sm:text-sm text-white hover:text-gray-100  ${isBrowse ? 'px-4 border-green-400 border-l-4' : 'px-5 text-gray-500'}`}>
+            <span><Icons.BookOpenOutline className="w-7 h-7" /></span><span>Browse</span>
+        </Link>
+        <Link to="/radio" className={`inline-flex  font-bold text-xs sm:text-sm text-white hover:text-gray-100  ${isRadio ? 'px-4 border-green-400 border-l-4' : 'px-5 text-gray-500'}`}>
+            <span><Icons.GlobeAltOutline className="w-7 h-7" /></span><span>Radio</span>
+        </Link>
     </nav>)
 }
 
