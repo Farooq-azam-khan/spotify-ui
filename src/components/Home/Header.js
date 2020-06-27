@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import * as Icons from 'heroicons-react';
+import {
+    Link
+} from "react-router-dom";
 
 const Header = ({ className }) => {
     const [toggleUserPopup, setUserPopup] = useState(false)
@@ -8,12 +11,14 @@ const Header = ({ className }) => {
     }
     return (
         <header className={className}>
-            <div className="flex justify-between space-x-1">
-                <div className=""><Icons.ChevronLeftOutline className="w-7 h-7" /></div>
-                <div className=""><Icons.ChevronRightOutline className="w-7 h-7" /></div>
-                <div><input className="rounded-lg text-black bg-gray-100 w-20 px-2" placeholder="Search" /></div>
+            <div className="inline-flex items-center justify-between space-x-1">
+                <button className="block text-gray-600"><Icons.ChevronLeftOutline className="w-7 h-7" /></button>
+                <button className="block"><Icons.ChevronRightOutline className="w-7 h-7" /></button>
+                <div className="bg-orange-300 w-32"><input className="rounded-lg text-black bg-gray-100 w-full h-full px-2" placeholder="Search" /></div>
             </div>
-            <div className="flex space-x-1"><div><Icons.UserCircleOutline className="w-7 h-7" /></div><div>spotify-username</div>
+            <div className="inline-flex items-center justify-between space-x-0 sm:space-x-1">
+                <button><Icons.UserCircleOutline className="w-7 h-7" /></button>
+                <div className="text-xs sm:text-md sm:font-semibold"><Link to="/profile">spotify-username</Link></div>
                 <div className="relative">
                     <button onClick={handleUserPopup}><Icons.ChevronDown className="w-7 h-7" /></button>
                     {toggleUserPopup ? <UserPopup /> : null}

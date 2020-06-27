@@ -40,7 +40,9 @@ const Sidebar = ({ className }) => {
                 </ul>
 
             </div>
-            <button className="p-3 inline-flex items-center justify-center space-x-3 text-gray-500 hover:text-gray-100"><span><Icons.PlusCircleOutline className="w-7 h-7" /></span> <span>New Playlist</span></button>
+            <button className="p-3 inline-flex items-center justify-center space-x-3 text-gray-500 hover:text-gray-100"><span><Icons.PlusCircleOutline className="w-7 h-7" /></span>
+                <span className="text-xs sm:text-sm md:text-md leading-none">New Playlist</span>
+            </button>
             <div className="flex-grow bg-purple-600 flex items-center justify-center "><span>image</span></div>
 
         </div>
@@ -50,14 +52,20 @@ const Sidebar = ({ className }) => {
 const Navbar = ({ className = "" }) => {
     return (<nav className={className}>
         <ul className="flex flex-col">
-            <li className="text-sm text-gray-100 font-bold border-l-4 border-green-400 px-4">
-                <button className="inline-flex items-center justify-between text-white hover:text-gray-100 space-x-2"><span><Icons.Home /></span><span>Home</span></button>
+            <li className="text-xs sm:text-sm text-gray-100 font-bold border-l-4 border-green-400 px-4">
+                <button className="inline-flex items-center justify-between text-white hover:text-gray-100 space-x-2">
+                    <span><Icons.Home className="w-7 h-7" /></span><span>Home</span>
+                </button>
             </li>
-            <li className="text-sm text-gray-500 font-bold px-5">
-                <button className="inline-flex items-center justify-between text-gray-500 hover:text-gray-100 space-x-2"><span><Icons.BookOpenOutline /></span><span>Browse</span></button>
+            <li className="text-xs sm:text-sm text-gray-500 font-bold px-5">
+                <button className="inline-flex items-center justify-between text-gray-500 hover:text-gray-100 space-x-2">
+                    <span><Icons.BookOpenOutline className="w-7 h-7" /></span><span>Browse</span>
+                </button>
             </li>
-            <li className="text-sm text-gray-500 font-bold px-5">
-                <button className="inline-flex items-center justify-between text-gray-500 hover:text-gray-100 space-x-2"><span><Icons.GlobeAltOutline /></span><span>Radio</span></button>
+            <li className="text-xs sm:text-sm text-gray-500 font-bold px-5">
+                <button className="inline-flex items-center justify-between text-gray-500 hover:text-gray-100 space-x-2">
+                    <span><Icons.GlobeAltOutline className="w-7 h-7" /></span><span>Radio</span>
+                </button>
             </li>
         </ul>
     </nav>)
