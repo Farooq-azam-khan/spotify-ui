@@ -12,7 +12,10 @@ const Header = ({ className }) => {
             <div className="inline-flex items-center justify-between space-x-1">
                 <button className="block text-gray-600"><Icons.ChevronLeftOutline className="w-7 h-7" /></button>
                 <button className="block"><Icons.ChevronRightOutline className="w-7 h-7" /></button>
-                <div className="bg-orange-300 w-32"><input className="rounded-lg text-black bg-gray-100 w-full h-full px-2" placeholder="Search" /></div>
+                <div className="relative">
+                    <input className="h-full rounded-lg text-black bg-gray-100 pl-5 pr-2" placeholder="Search" />
+                    <div className="absolute z-10 bottom-0 mb-1 flex items-center justify-center"><span><Icons.SearchOutline className="w-4 h-4 text-gray-800" /></span></div>
+                </div>
             </div>
             <div className="inline-flex items-center justify-between space-x-0 sm:space-x-1">
                 <button><Icons.UserCircleOutline className="w-7 h-7" /></button>

@@ -49,8 +49,6 @@ const Sidebar = ({ className }) => {
     )
 }
 
-
-
 const Navbar = ({ className = "flex flex-col space-y-1" }) => {
     let isHome = useRouteMatch({
         path: '/',
