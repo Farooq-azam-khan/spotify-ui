@@ -13,17 +13,21 @@ const Header = ({ className }) => {
                 <button className="block text-gray-600"><Icons.ChevronLeftOutline className="w-7 h-7" /></button>
                 <button className="block"><Icons.ChevronRightOutline className="w-7 h-7" /></button>
                 <div className="hidden sm:block relative">
-                    <input className="h-full rounded-lg text-black bg-gray-100 pl-5 pr-2" placeholder="Search" />
-                    <div className="absolute z-10 bottom-0 mb-1 flex items-center justify-center"><span><Icons.SearchOutline className="w-4 h-4 text-gray-800" /></span></div>
+                    <input className="h-full w-32 rounded-lg text-black bg-gray-100 pl-6 pr-2" placeholder="Search" />
+                    <div className="absolute z-10 bottom-0 mb-1 ml-1 mt-1 flex items-center justify-center"><span><Icons.SearchOutline className="w-4 h-4 text-gray-800" /></span></div>
                 </div>
                 <div className="block sm:hidden"><button><Icons.SearchOutline className="w-5 h-5" /></button></div>
             </div>
-            <div className="inline-flex items-center justify-between space-x-0 sm:space-x-1">
-                <button><Icons.UserCircleOutline className="w-7 h-7" /></button>
-                <div className="text-xs sm:text-md sm:font-semibold"><Link to="/profile">spotify-username</Link></div>
+            <div className="inline-flex items-center justify-between">
+                <Link className="inline-flex items-center justify-between space-x-1" to="/profile">
+                    <span><Icons.UserCircleOutline className="w-7 h-7" /></span>
+                    <span className="text-xs sm:text-md sm:font-semibold" >spotify-username</span>
+                </Link>
                 <div className="relative">
                     <button onClick={handleUserPopup}><Icons.ChevronDown className="w-7 h-7" /></button>
-                    {toggleUserPopup ? <UserPopup /> : null}
+                    {toggleUserPopup ? <>
+                        <button onClick={() => setUserPopup(false)} className="fixed w-full h-full inset-0 cursor-default" /><UserPopup />
+                    </> : null}
                 </div>
             </div>
         </header>

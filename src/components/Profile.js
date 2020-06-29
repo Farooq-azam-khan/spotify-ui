@@ -22,9 +22,9 @@ const Profile = () => {
             {toggleShare ? <><button className="fixed inset-0 w-full h-full cursor-default" onClick={() => setShare(false)}></button><ShareDropdown /></> : null}
         </div>
         <nav className="flex space-x-2">
-            <button className="uppercase border-green-700 border-b-2 text-sm font-bold text-gray-200">Overview</button>
-            <button className="uppercase text-sm font-bold text-gray-500 hover:text-gray-200">Recently Played Artist</button>
-            <button className="uppercase text-sm font-bold text-gray-500 hover:text-gray-200">Following (41)</button>
+            <button className="uppercase border-green-700 border-b-2 text-sm font-medium text-gray-200">Overview</button>
+            <button className="uppercase text-sm font-medium text-gray-500 hover:text-gray-200">Recently Played Artist</button>
+            <button className="uppercase text-sm font-medium text-gray-500 hover:text-gray-200">Following (41)</button>
         </nav>
     </div>
     )

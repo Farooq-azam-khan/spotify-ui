@@ -26,7 +26,7 @@ const MobileNavar = () => {
         <Icons.Play className="w-5 h-5" />
       </div>
     </div>
-    <nav class="w-full flex justify-between py-3 px-4">
+    <nav className="w-full flex justify-between py-3 px-4">
       <Link className="flex flex-col items-center justify-center space-y-1" to="/">
         <div><Icons.Home className="w-8 h-8" /></div>
         <div>Home</div>
