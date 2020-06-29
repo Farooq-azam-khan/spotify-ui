@@ -28,7 +28,7 @@ const ActiveSongDrawer = ({ className }) => {
 
 const ActiveSong = ({ song = "", isLiked = false }) => {
     return (<span><span className="inline-flex items-center space-x-2">
-        <span>{song}</span> <span>{isLiked ? <Icons.Heart className="w-5 h-5" /> : <Icons.HeartOutline className="w-5 h-5" />}</span>
+        <span className="text-sm sm:font-semibold sm:text-md">{song}</span> <span>{isLiked ? <Icons.Heart className="w-5 h-5" /> : <Icons.HeartOutline className="w-5 h-5" />}</span>
     </span>
         <br /><span className="text-gray-500 text-xs">milet</span>
     </span>)

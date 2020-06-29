@@ -1,8 +1,9 @@
 import React from 'react'
-
+import * as Icons from 'heroicons-react'
 import {
     Switch,
     Route,
+    Link
 } from "react-router-dom";
 
 import Sidebar from './Sidebar';
@@ -14,9 +15,10 @@ import Radio from '../Radio';
 
 const Home = ({ className }) => {
     return (<section className={className}>
-        <Sidebar className="w-2/6 md:w-1/6 overflow-auto bg-gray-900 h-full flex flex-col" />
-        <div className="w-4/6 sm:w-4/6 flex flex-col items-start">
-            <Header className="w-full flex items-center justify-between space-x-2 px-0 sm:px-3 py-2" />
+        <Sidebar className="hidden sm:flex flex-col w-2/6 md:w-1/6 overflow-auto bg-gray-900 h-full " />
+        <div className="w-full sm:w-4/6 flex flex-col items-start">
+            <Header className="hidden sm:flex w-full items-center justify-between space-x-2 px-0 sm:px-3 py-2" />
+            <MobileHeader />
             <Switch>
                 <Route exact path="/"><MainPage /></Route>
                 <Route exact path="/browse"><Browse /></Route>
@@ -27,6 +29,10 @@ const Home = ({ className }) => {
         <RightSideBar className="hidden md:flex w-1/6 flex-col items-center justify-center h-full bg-gray-900 px-5 py-2" />
     </section>
     )
+}
+
+const MobileHeader = () => {
+    return (<div className="w-full flex py-2 items-center justify-end px-3"><Link to="/profile"><Icons.CogOutline className="w-6 h-6" /></Link></div>)
 }
 
 const MainPage = () => {
