@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useRouteMatch, Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as Icons from 'heroicons-react';
 
 const Sidebar = ({ className }) => {
-    const [toggleMenu, setMenu] = useState(false)
+    const [toggleMenu, setMenu] = useState(false);
+    const [toggleNewPlaylist, setNewPlaylist] = useState(true);
     const handleMenu = () => {
         setMenu(!toggleMenu)
     }
@@ -39,10 +40,13 @@ const Sidebar = ({ className }) => {
                 </div>
 
             </div>
-            <button onClick={() => console.log('todo:modal for creating new playlist')} className="p-3 inline-flex items-center justify-center space-x-3 text-gray-500 hover:text-gray-100">
+            <button onClick={() => setNewPlaylist(true)} className="p-3 inline-flex items-center justify-center space-x-3 text-gray-500 hover:text-gray-100">
                 <span><Icons.PlusCircleOutline className="w-7 h-7" /></span>
                 <span className="text-xs sm:text-sm md:text-md leading-none">New Playlist</span>
             </button>
+            {toggleNewPlaylist ? <>
+                <NewPlaylistModal close={setNewPlaylist} />
+            </> : null}
             <div className="flex-grow bg-purple-600 flex items-center justify-center ">
                 <span>image</span>
             </div>
@@ -51,6 +55,24 @@ const Sidebar = ({ className }) => {
     )
 }
 
+const NewPlaylistModal = ({ close }) => {
+    return (<div className="fixed flex items-center justify-center  z-10 w-full h-full inset-0">
+        <button className="fixed z-10 w-full h-full inset-0 bg-black opacity-75" onClick={() => close(false)} />
+
+        <div className="z-40 flex  flex-col bg-gray-900 rounded-lg p-4 shadow-2xl">
+            <div className="inline-flex items-center justify-between">
+                <h2 className="flex-grow">Create Playlist</h2>
+                <button onClick={() => close(false)}><Icons.XOutline className="w-7 h-7" /></button>
+            </div>
+            <div className="flex">
+                <div>image</div>
+                <div>
+                    <label>Name<input className="bg-gray-200 text-gray-800" placeholder="My Playlist #1" /></label>
+                </div>
+            </div>
+        </div>
+    </div>)
+}
 const Navbar = ({ className = "flex flex-col space-y-1" }) => {
 
     return (<nav className={className}>
