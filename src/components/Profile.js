@@ -23,7 +23,7 @@ const Profile = () => {
             {toggleShare ? <><button className="fixed inset-0 w-full h-full cursor-default" onClick={() => setShare(false)}></button><ShareDropdown /></> : null}
         </div>
 
-
+        {/* navbar */}
         <nav className="flex space-x-2">
             <NavLink to="/profile/overview" activeClassName="border-green-700 border-b-2 text-gray-200" className="uppercase text-sm font-medium text-gray-500 hover:text-gray-200">Overview</NavLink>
             <NavLink to="/profile/recently-played-artist" activeClassName="border-green-700 border-b-2 text-gray-200" className="uppercase text-sm font-medium text-gray-500 hover:text-gray-200">Recently Played Artist</NavLink>

@@ -7,7 +7,7 @@ import {
 import * as Icons from 'heroicons-react'
 import Albums from '../Albums'
 import Artists from '../Artists'
-import Browse from '../Browse';
+import Browse from '../Browse/index';
 import Header from './Header';
 import LikedSongs from '../LikedSongs'
 import MadeForYou from '../MadeForYou';
@@ -26,7 +26,7 @@ const Home = ({ className }) => {
             <Header className="hidden sm:flex w-full items-center justify-between space-x-2 px-0 sm:px-3 py-2" />
             <MobileHeader />
             <Switch>
-                <Route exact path="/browse"><Browse /></Route>
+                <Route path="/browse"><Browse /></Route>
                 <Route exact path="/radio"><Radio /></Route>
                 <Route path="/profile"><Profile /></Route>
                 <Route exact path="/made-for-you"><MadeForYou /></Route>
