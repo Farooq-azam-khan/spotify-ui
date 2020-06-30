@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Switch,
     Route,
 } from "react-router-dom";
 
+import * as Icons from 'heroicons-react'
 import Albums from '../Albums'
 import Artists from '../Artists'
 import Browse from '../Browse';
@@ -52,9 +53,26 @@ const MainPage = () => {
 }
 
 const RightSideBar = ({ className = "" }) => {
+    const [toggleFriends, setFriends] = useState(true)
     return (<section className={className}>
         <div className="sm:text-xs sm:font-normal text-center font-semibold md:font-bold md:text-lg">See what your friends are playing</div>
-        <button className="w-full p-1 md:px-1 md:py-2 border text-white text-xs font-semibold md:font-bold border-gray-100 rounded-full uppercase mt-5">Find Friends</button>
+        <button onClick={() => setFriends(true)} className="w-full p-1 md:px-1 md:py-2 border text-white text-xs font-semibold md:font-bold border-gray-100 rounded-full uppercase mt-5">Find Friends</button>
+        {toggleFriends ? <>
+            <FriendsModal close={setFriends} />
+        </> : null}
     </section>)
+}
+const FriendsModal = ({ close }) => {
+    return <div className="fixed flex items-center justify-center z-10 w-full h-full inset-0">
+        <button className="fixed z-10 w-full h-full inset-0 bg-black opacity-75" onClick={() => close(false)} />
+        <div className="z-40 flex flex-col space-y-3 bg-gray-900 rounded-lg shadow-2xl">
+            <div className="inline-flex items-start justify-between w-full px-3 py-2 space-x-10">
+                <h2 className="text-3xl font-bold text-gray-100">Follow</h2>
+                <button className="text-gray-400 hover:text-gray-100" onClick={() => close(false)}><Icons.X className="w-7 h-7" /></button>
+            </div>
+            <div className="bg-gray-800 w-full h-full">content</div>
+            <div className="p-10"></div>
+        </div>
+    </div>
 }
 export default Home
