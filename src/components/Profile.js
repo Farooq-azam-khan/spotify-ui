@@ -66,7 +66,7 @@ const myFollowing = [
     }
 ]
 const Following = () => {
-    return <div className="w-full h-64 flex flex-col px-3  overflow-auto">
+    return <div className="flex-grow w-full h-64 flex flex-col px-3 overflow-auto">
         {myFollowing.map(e => <div key={e.id} className='inline-flex items-center justify-between border-b border-gray-700 pb-5 pt-5'>
             <div className="flex space-x-3 items-center justify-between overflow-hidden">
                 <img className="rounded-full w-24 h-24 object-cover" src={e.imageUrl} alt={e.name} />
