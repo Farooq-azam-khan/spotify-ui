@@ -4,7 +4,7 @@ import * as Icons from 'heroicons-react';
 
 const Sidebar = ({ className }) => {
     const [toggleMenu, setMenu] = useState(false);
-    const [toggleNewPlaylist, setNewPlaylist] = useState(true);
+    const [toggleNewPlaylist, setNewPlaylist] = useState(false);
     const handleMenu = () => {
         setMenu(!toggleMenu)
     }

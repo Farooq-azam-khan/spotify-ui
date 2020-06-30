@@ -37,7 +37,7 @@ const Header = ({ className }) => {
 const UserPopup = () => {
     return (<nav className="absolute right-0 bg-gray-900 shadow-2xl w-48 text-gray-400 flex flex-col">
         <a className="hover:bg-gray-600 px-5 py-1" href="#">Private Session</a>
-        <a className="w-full hover:bg-gray-600 px-5 py-1" href="#">Settings</a>
+        <Link className="w-full hover:bg-gray-600 px-5 py-1" to="/settings">Settings</Link>
         <a className="w-full hover:bg-gray-600 px-5 py-1" href="#">Log Out</a>
     </nav >)
 }

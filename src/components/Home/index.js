@@ -14,7 +14,8 @@ import MobileHeader from './MobileHeader'
 import Podcasts from '../Podcasts'
 import Profile from '../Profile';
 import Radio from '../Radio';
-import RecentlyPlayed from '../RecentlyPlayed'
+import RecentlyPlayed from '../RecentlyPlayed';
+import Settings from '../Settings';
 import Sidebar from './Sidebar';
 
 const Home = ({ className }) => {
@@ -33,6 +34,7 @@ const Home = ({ className }) => {
                 <Route exact path="/albums"><Albums /></Route>
                 <Route exact path="/artists"><Artists /></Route>
                 <Route exact path="/podcasts"><Podcasts /></Route>
+                <Route exact path="/settings"><Settings /></Route>
                 <Route path="/"><MainPage /></Route>
             </Switch>
         </div>
