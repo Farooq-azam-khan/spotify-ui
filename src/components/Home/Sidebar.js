@@ -59,16 +59,26 @@ const NewPlaylistModal = ({ close }) => {
     return (<div className="fixed flex items-center justify-center  z-10 w-full h-full inset-0">
         <button className="fixed z-10 w-full h-full inset-0 bg-black opacity-75" onClick={() => close(false)} />
 
-        <div className="z-40 flex  flex-col bg-gray-900 rounded-lg p-4 shadow-2xl">
-            <div className="inline-flex items-center justify-between">
-                <h2 className="flex-grow">Create Playlist</h2>
-                <button onClick={() => close(false)}><Icons.XOutline className="w-7 h-7" /></button>
-            </div>
-            <div className="flex">
-                <div>image</div>
-                <div>
-                    <label>Name<input className="bg-gray-200 text-gray-800" placeholder="My Playlist #1" /></label>
+        <div className="z-40 flex flex-col space-y-3 bg-gray-900 rounded-lg p-4 shadow-2xl">
+            <div className="flex flex-col space-y-3">
+                <div className="inline-flex items-center justify-between">
+                    <h2 className="flex-grow text-center font-bold text-lg">Create Playlist</h2>
+                    <button onClick={() => close(false)}><Icons.XOutline className="w-7 h-7" /></button>
                 </div>
+                <div className="flex items-center justify-between space-x-3">
+                    <div className="flex flex-col justify-between items-center bg-gray-800 p-10">
+                        <div><Icons.PlusCircle className="w-10 h-10" /></div>
+                        <div>choose image</div>
+                    </div>
+                    <div className="space-y-3">
+                        <label className="flex flex-col"><span className="text-gray-400 font-semibold">Name</span><input className="bg-gray-200 text-gray-800" placeholder="My Playlist #1" /></label>
+
+                        <label className="flex flex-col"><span className="text-gray-400 font-semibold">Description</span><textarea></textarea></label>
+                    </div>
+                </div>
+            </div>
+            <div className="text-center">
+                <button className="px-10 py-2 bg-green-600 rounded-full">Create</button>
             </div>
         </div>
     </div>)
