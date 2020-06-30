@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useRouteMatch, Link } from 'react-router-dom';
+import { useRouteMatch, Link, NavLink } from 'react-router-dom';
 import * as Icons from 'heroicons-react';
 
 const Sidebar = ({ className }) => {
@@ -7,6 +7,7 @@ const Sidebar = ({ className }) => {
     const handleMenu = () => {
         setMenu(!toggleMenu)
     }
+
     return (
         <div className={className} >
             <div className="relative p-3">
@@ -14,28 +15,28 @@ const Sidebar = ({ className }) => {
                 {toggleMenu ? <><button onClick={() => setMenu(false)} className="cursor-default fixed w-full h-full inset-0" /><Menu /></> : null}
             </div>
             <Navbar />
-            <div className="mt-4 pl-5 flex flex-col overflow-auto text-gray-300 border-b border-gray-600 h-32">
+            <div className="mt-4  flex flex-col overflow-auto text-gray-300 border-b border-gray-600 h-32">
                 {/* Your Library */}
                 <div>
-                    <h2 className="text-xs leading-tight uppercase font-semibold">Your Library</h2>
+                    <h2 className="text-xs pl-5 leading-tight uppercase font-semibold">Your Library</h2>
                 </div>
-                <ul className="mt-2 flex flex-col space-y-1 text-sm">
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/made-for-you">Made For You</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/recently-played">Recently Played</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/liked-songs">Liked Songs</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/albums">Albums</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/artists">Artists</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/podcasts">Podcasts</Link></li>
-                </ul>
+                <div className="mt-2 flex flex-col space-y-1 text-sm">
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/made-for-you">Made For You</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/recently-played">Recently Played</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/liked-songs">Liked Songs</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/albums">Albums</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/artists">Artists</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/podcasts">Podcasts</NavLink>
+                </div>
                 {/* Playlists */}
-                <div className="mt-4">
+                <div className="px-5 mt-4">
                     <h2 className="text-xs leading-tight uppercase font-semibold">Playlists</h2>
                 </div>
-                <ul className="flex flex-col space-y-1 text-sm mt-2">
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/the-future-nostalgia">The Future Nostalgia</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/mr-robot-ost">Mr Robot OST</Link></li>
-                    <li className="truncate text-gray-400 hover:text-gray-100"><Link to="/peaceful-piano">Peaceful Piano</Link></li>
-                </ul>
+                <div className="flex flex-col space-y-1 text-sm mt-2">
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/the-future-nostalgia">The Future Nostalgia</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/mr-robot-ost">Mr Robot OST</NavLink>
+                    <NavLink activeClassName="px-4 border-green-400 border-l-4" className="px-5 truncate text-gray-400 hover:text-gray-100" to="/peaceful-piano">Peaceful Piano</NavLink>
+                </div>
 
             </div>
             <button onClick={() => console.log('todo:modal for creating new playlist')} className="p-3 inline-flex items-center justify-center space-x-3 text-gray-500 hover:text-gray-100">
@@ -46,33 +47,22 @@ const Sidebar = ({ className }) => {
                 <span>image</span>
             </div>
 
-        </div>
+        </div >
     )
 }
 
 const Navbar = ({ className = "flex flex-col space-y-1" }) => {
-    let isHome = useRouteMatch({
-        path: '/',
-        exact: true
-    });
-    let isBrowse = useRouteMatch({
-        path: '/browse',
-        exact: true
-    });
-    let isRadio = useRouteMatch({
-        path: '/radio',
-        exact: true
-    });
+
     return (<nav className={className}>
-        <Link to="/" className={`inline-flex items-center space-x-3 font-bold text-xs sm:text-sm text-white hover:text-gray-100  ${isHome ? 'px-4 border-green-400 border-l-4' : 'px-5 text-gray-500'}`}>
+        <NavLink exact to="/" className="inline-flex items-center space-x-3 font-bold text-xs sm:text-sm hover:text-gray-100 px-5 text-gray-500" activeClassName="px-4 border-green-400 border-l-4">
             <span><Icons.Home className="w-7 h-7" /></span><span>Home</span>
-        </Link>
-        <Link to="/browse" className={`inline-flex items-center space-x-3 font-bold text-xs sm:text-sm text-white hover:text-gray-100  ${isBrowse ? 'px-4 border-green-400 border-l-4' : 'px-5 text-gray-500'}`}>
+        </NavLink>
+        <NavLink exact to="/browse" className="inline-flex items-center space-x-3 font-bold text-xs sm:text-sm hover:text-gray-100 px-5 text-gray-500" activeClassName="px-4 border-green-400 border-l-4">
             <span><Icons.BookOpenOutline className="w-7 h-7" /></span><span>Browse</span>
-        </Link>
-        <Link to="/radio" className={`inline-flex items-center space-x-3 font-bold text-xs sm:text-sm text-white hover:text-gray-100  ${isRadio ? 'px-4 border-green-400 border-l-4' : 'px-5 text-gray-500'}`}>
+        </NavLink>
+        <NavLink exact to="/radio" className="inline-flex items-center space-x-3 font-bold text-xs sm:text-sm hover:text-gray-100 px-5 text-gray-500" activeClassName="px-4 border-green-400 border-l-4">
             <span><Icons.GlobeAltOutline className="w-7 h-7" /></span><span>Radio</span>
-        </Link>
+        </NavLink>
     </nav>)
 }
 
