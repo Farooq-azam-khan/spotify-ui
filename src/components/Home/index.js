@@ -28,7 +28,7 @@ const Home = ({ className }) => {
             <Switch>
                 <Route exact path="/browse"><Browse /></Route>
                 <Route exact path="/radio"><Radio /></Route>
-                <Route exact path="/profile"><Profile /></Route>
+                <Route path="/profile"><Profile /></Route>
                 <Route exact path="/made-for-you"><MadeForYou /></Route>
                 <Route exact path="/recently-played"><RecentlyPlayed /></Route>
                 <Route exact path="/liked-songs"><LikedSongs /></Route>
@@ -36,7 +36,7 @@ const Home = ({ className }) => {
                 <Route exact path="/artists"><Artists /></Route>
                 <Route exact path="/podcasts"><Podcasts /></Route>
                 <Route exact path="/settings"><Settings /></Route>
-                <Route path="/"><MainPage /></Route>
+                <Route exact path="/"><MainPage /></Route>
             </Switch>
         </div>
         <RightSideBar className="hidden md:flex w-1/6 flex-col items-center justify-center h-full bg-gray-900 px-5 py-2" />
@@ -53,7 +53,7 @@ const MainPage = () => {
 }
 
 const RightSideBar = ({ className = "" }) => {
-    const [toggleFriends, setFriends] = useState(true)
+    const [toggleFriends, setFriends] = useState(false)
     return (<section className={className}>
         <div className="sm:text-xs sm:font-normal text-center font-semibold md:font-bold md:text-lg">See what your friends are playing</div>
         <button onClick={() => setFriends(true)} className="w-full p-1 md:px-1 md:py-2 border text-white text-xs font-semibold md:font-bold border-gray-100 rounded-full uppercase mt-5">Find Friends</button>
