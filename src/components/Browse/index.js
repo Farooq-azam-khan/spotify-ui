@@ -3,7 +3,7 @@ import { NavLink, Switch, Route } from 'react-router-dom'
 const Browse = () => {
     return (<div className="mt-8 font-bold text-xl px-10">
         <h2 className="text-5xl">Browse</h2>
-        <nav className="flex items-center justify-center flex-wrap w-full p-0 m-0 space-x-3 space-y-2 md:space-x-4 text-center bg-gray-900 ">
+        <nav className="flex items-center justify-center flex-wrap w-full p-0 m-0 space-x-3 space-y-2 md:space-x-4 text-center">
             <NavLink to="/browse/genre-and-bood" activeClassName="border-green-700 border-b-2 text-gray-100" className="uppercase tracking-wide text-xs font-medium text-gray-500 hover:text-gray-200">Genre & Mood</NavLink>
             <NavLink to="/browse/podcasts" activeClassName="border-green-700 border-b-2 text-gray-100" className="uppercase tracking-wide text-xs font-medium text-gray-500 hover:text-gray-200">Podcasts</NavLink>
             <NavLink to="/browse/charts" activeClassName="border-green-700 border-b-2 text-gray-100" className="uppercase text-xs font-medium tracking-wide text-gray-500 hover:text-gray-200">Charts</NavLink>
